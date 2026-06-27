@@ -54,22 +54,95 @@ Managing and evaluating loan portfolio performance is a key challenge for banks 
 ### 📈 Charts
 
 1.	Monthly Trends by Issue Date (Line/ Area Chart):  To identify seasonality and long-term trends in lending activities
+
+	## Monthly Trends by Issue Date for Total Funded Amount
+
+	<img width="989" height="490" alt="1  Monthly Funded Amount in millions" src="https://github.com/user-attachments/assets/5adae9e4-3ed9-4c02-b5af-2b87d474a8fc" />
+
+   ## Monthly Trends by Issue Date for Total Amount Received
+
+<img width="989" height="490" alt="2 Monthly Trends Total Amount Received" src="https://github.com/user-attachments/assets/ea468383-19fe-4cd6-adbf-7bdd2ebcde81" />
+
+   ## Monthly Trends by Issue Date for Total Loan Applications
    
-2.	Regional Analysis by State (Bar Chart): To identify regions with significant lending activity and assess regional disparities
+<img width="989" height="490" alt="3  Monthly Total Loan Applications" src="https://github.com/user-attachments/assets/6f0e8699-eb4b-495a-a1ef-911430b0ee71" />
+ 
+3.	Regional Analysis by State (Bar Chart): To identify regions with significant lending activity and assess regional disparities
+
+  ## Regional Analysis by State for Total Funded Amount
+
+<img width="983" height="790" alt="4  Regional analysis by state total funded amount" src="https://github.com/user-attachments/assets/5fbd3ee2-712f-494e-85e2-fd5cffbf4ba8" />
+
+  ## Regional Analysis by State for Total Amount Received
+
+<img width="983" height="790" alt="5  Regional analysis by state total amount received" src="https://github.com/user-attachments/assets/a4edc319-1d91-47ee-947a-5cd3a58c81f6" />
+
+  ## Regional Analysis by State for Total Loan Applications
+  
+<img width="989" height="790" alt="6  Regional analysis by state by  loan applications" src="https://github.com/user-attachments/assets/3965f2f4-17d2-408f-9ff5-ac2f7b5ccd5e" />
 	
-3.	Loan Term Analysis (Donut Chart): To allow the client to understand the distribution of loans across various term lengths.
-  
-4.	Employee Length Analysis (Bar Chart): How lending metrics are distributed among borrowers with different employment lengths, helping us assess the impact of employment history on loan applications.
-  
-5.	Loan Purpose Breakdown (Bar Chart): Will provide a visual breakdown of loan metrics based on the stated purposes of loans, aiding in the understanding of the primary reasons borrowers seek financing.
-    
-6.	Home Ownership Analysis (Tree): For a hierarchical view of how home ownership impacts loan applications and disbursements.
-    
-##### Metrics to be shown: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
+4.	Loan Term Analysis (Donut Chart): To allow the client to understand the distribution of loans across various term lengths.
 
-### Bank Loan Analysis Report Summary
+ ## Loan Term Analysis by Total Funded Amount
 
-# Bank Loan Portfolio — Executive Analysis Report
+<img width="489" height="428" alt="7  Loan term analysis by total funded amount" src="https://github.com/user-attachments/assets/0c462b61-851c-4d42-b976-c4ae3653bfde" />
+
+ ## Loan Term Analysis by Total Amount Received
+
+<img width="491" height="428" alt="8  loan term analysis by amount received" src="https://github.com/user-attachments/assets/8a24483e-2a5b-4202-925e-b7fa7ba883f9" />
+
+ ### Loan Term Analysis by Total Loan Applications
+
+<img width="429" height="428" alt="9  Loan term analysis by loan applications" src="https://github.com/user-attachments/assets/c5fa045e-047f-4515-8dc9-ccb95a366c6b" />
+  
+5.	Employee Length Analysis (Bar Chart): How lending metrics are distributed among borrowers with different employment lengths, helping us assess the impact of employment history on loan applications.
+
+ ## Employee Length by Total Funded Amount
+
+<img width="989" height="590" alt="10  employee length total funded amount" src="https://github.com/user-attachments/assets/084c19b1-5ad6-4f3d-805e-0c00539b6975" />
+
+ ## Employee Length by Total Amount Received
+
+<img width="989" height="590" alt="11  employee length amount received" src="https://github.com/user-attachments/assets/d8ec7a1b-a242-42fe-87bc-4fe7793d34d9" />
+ 
+ ## Employee Length by Total Loan Applications
+
+<img width="989" height="590" alt="12  employee length loan applications" src="https://github.com/user-attachments/assets/30ff3fa3-867f-40b4-819f-074dcc28bb3b" />
+
+6.	Loan Purpose Breakdown (Bar Chart): Will provide a visual breakdown of loan metrics based on the stated purposes of loans, aiding in the understanding of the primary reasons borrowers seek financing.
+
+ ## Loan Purpose by Total Funded Amount
+
+<img width="988" height="590" alt="13  loan purpose total funded amount" src="https://github.com/user-attachments/assets/dffac37d-d9e5-430a-9f0e-07feb1f28d9d" />
+
+ ## Loan Purpose by Total Amount Received
+
+<img width="988" height="590" alt="14  loan purpose amount received" src="https://github.com/user-attachments/assets/fa237451-264c-44d7-88c4-fccc212620f2" />
+
+ ## Loan Purpose by Total Loan Applications
+ 
+<img width="989" height="590" alt="15  loan purpose loan applications" src="https://github.com/user-attachments/assets/ed090276-8da8-438d-b8b3-54d0e9b04cc8" />
+	
+7.	Home Ownership Analysis (Tree): For a hierarchical view of how home ownership impacts loan applications and disbursements.
+
+ ## Home Ownership by Total Funded Amount
+
+<img width="1038" height="382" alt="image" src="https://github.com/user-attachments/assets/9dca04c8-0a48-477b-8977-7d4b8c3b06b0" />
+
+ ## Home Ownership by Total Amount Received
+ 
+<img width="975" height="370" alt="image" src="https://github.com/user-attachments/assets/82ad5be6-8e4e-4c1c-af50-6e13cb3f361f" />
+
+ ## Home Ownership by Total Loan Applications
+
+<img width="1001" height="403" alt="image" src="https://github.com/user-attachments/assets/487e0c7b-b276-4b8c-81e2-08d8f9b0b2bf" />
+
+    
+### Metrics to be shown: 'Total Loan Applications,' 'Total Funded Amount,' and 'Total Amount Received'
+
+
+
+# Bank Loan — Executive Analysis Report
 
 > **Data Period:** January 2021 – December 2022
 
@@ -159,7 +232,7 @@ Loan applications and funded amounts show a **consistent upward trend** across t
 
 ---
 
-## 📝 Summary Verdict
+## 📝 Summary 
 
 | ✅ Portfolio Strengths | ⚠️ Risk Concerns |
 |------------------------|------------------|
@@ -176,5 +249,6 @@ Loan applications and funded amounts show a **consistent upward trend** across t
 
 ---
 
-*Report covers loan portfolio data from January 2021 through December 2022.*
+
+
 
