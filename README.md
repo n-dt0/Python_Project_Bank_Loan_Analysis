@@ -1,4 +1,4 @@
-# Python_Project_Bank_Loan_Analysis
+# Python_Project_Bank_Loan_Analysis (Data Analysis Project)
 Bank_Loan_Analysis_Python_Project
 This project analyzes bank loan data using Python to track portfolio performance, assess credit risk, and uncover borrower trends — turning raw financial data into actionable insights that support smarter lending decisions.
 
