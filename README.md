@@ -6,11 +6,20 @@ This project analyzes bank loan data using Python to track portfolio performance
 
 The analysis is built entirely in Python, utilizing its core data science libraries:
 
-Pandas: For robust data cleaning, handling missing values, type casting, and KPI derivation.
+**Pandas**: For robust data cleaning, handling missing values, type casting, and KPI derivation.
 
-Matplotlib & Seaborn: For exploratory data analysis (EDA) and crafting high-quality, intuitive visualizations.
+**Matplotlib & Seaborn**: For exploratory data analysis (EDA) and crafting high-quality, intuitive visualizations.
 
-Jupyter Notebook: For an interactive, well-documented development and analysis workflow.
+**Plotly Express**: For hierarchical treemap visualizations (Home Ownership breakdowns).
+
+**Jupyter Notebook**: For an interactive, well-documented development and analysis workflow.
+
+**Full analysis and code**: src/Bank_loan_.ipynb
+
+### ▶️ How to Run
+This notebook currently loads data via a local absolute path (D:\Python Project\Bank Loan\bank_loan.xlsx). To run it yourself, update the path in the data-loading cell to point to the bank_loan.xlsx file in this repo's data folder, e.g.:
+
+df = pd.read_excel("data/bank_loan.xlsx")
 
 ### 💼 Business Problem
 Managing and evaluating loan portfolio performance is a key challenge for banks without clear visibility into critical metrics like loan applications, funded amounts, repayments, interest rates, and borrower DTI. This project uses Python to compute critical KPIs, classify loans as Good or Bad, and deliver visual insights — helping banks make informed lending decisions.
@@ -19,15 +28,15 @@ Managing and evaluating loan portfolio performance is a key challenge for banks 
 
 #### Key Performance Indicators (KPIs) Requirements:
 
-1.	Total Loan Applications: We need to calculate the total number of loan applications received during a specified period. Additionally, it is essential to monitor the Month-to-Date (MTD) Loan Applications.
+1.	**Total Loan Applications**: We need to calculate the total number of loan applications received during a specified period. Additionally, it is essential to monitor the Month-to-Date (MTD) Loan Applications.
    
-2.	Total Funded Amount: Understanding the total amount of funds disbursed as loans is crucial. We also want to keep an eye on the MTD Total Funded Amount metric.
+2.	**Total Funded Amount**: Understanding the total amount of funds disbursed as loans is crucial. We also want to keep an eye on the MTD Total Funded Amount metric.
    
-3.	Total Amount Received: Tracking the total amount received from borrowers is essential for assessing the bank's cash flow and loan repayment. We should analyse the Month-to-Date (MTD) Total Amount Receive.
+3.	**Total Amount Received**: Tracking the total amount received from borrowers is essential for assessing the bank's cash flow and loan repayment. We should analyse the Month-to-Date (MTD) Total Amount Receive.
    
-4.	Average Interest Rate: Calculating the average interest rate across all loans which will provide insights into our lending portfolio's overall cost.
+4.	**Average Interest Rate**: Calculating the average interest rate across all loans which will provide insights into our lending portfolio's overall cost.
    
-5.	Average Debt-to-Income Ratio (DTI): Evaluating the average DTI for our borrowers helps us gauge their financial health. We need to compute the average DTI for all loans.
+5.	**Average Debt-to-Income Ratio (DTI)**: Evaluating the average DTI for our borrowers helps us gauge their financial health. We need to compute the average DTI for all loans.
 
 ### Good Loan v Bad Loan KPI’s
 
@@ -51,6 +60,40 @@ Managing and evaluating loan portfolio performance is a key challenge for banks 
 
 4.	Bad Loan Total Received Amount
 
+### 🐍 Key Python Techniques
+###### Good/Bad loan classification via boolean filtering '''
+good_loan_applications = df[df['loan_status'].isin(['Fully Paid', 'Current'])]
+bad_loan_applications = df[df['loan_status'].isin(['Charged Off'])]
+
+###### Month-to-date filtering using datetime accessors
+latest_issue_date = df['issue_date'].max()
+mtd_data = df[(df['issue_date'].dt.year == latest_issue_date.year) &
+              (df['issue_date'].dt.month == latest_issue_date.month)]
+
+###### Method-chained aggregation pipeline for monthly trend charts
+monthly_funded_amount = (df.sort_values('issue_date')
+    .assign(month_name=lambda x: x['issue_date'].dt.strftime('%Y-%m'))
+    .groupby('month_name', sort=False)['loan_amount']
+    .sum().div(1_000_000)
+    .reset_index(name='loan_amount_millions'))
+
+Used pandas method chaining (.groupby() → .sum()/.count() → .div() → .reset_index()) consistently across every breakdown dimension (state, loan term, employment length, loan purpose, home ownership), matplotlib/seaborn for annotated bar and donut charts with in-chart value labels, and plotly.express treemaps for the hierarchical home-ownership visualizations.
+	
+###### Annotated horizontal bar chart with dynamic value labels
+state_funded_amount = (
+    df.groupby('address_state')['loan_amount']
+      .sum().div(1000)
+      .reset_index(name='state_funded_amount_thousands')
+      .sort_values('state_funded_amount_thousands', ascending=True)
+)
+
+bars = plt.barh(state_funded_amount['address_state'], state_funded_amount['state_funded_amount_thousands'])
+for bar in bars:
+    width = bar.get_width()
+    plt.text(width + 5, bar.get_y() + bar.get_height()/2, f"${width:.0f}K", va='center')
+
+Charts were built with dynamically labeled bars (value annotations placed directly on each bar) rather than relying on axis gridlines alone, prioritizing readability for a non-technical business audience
+	
 ### 📈 Charts
 
 1.	Monthly Trends by Issue Date (Line/ Area Chart):  To identify seasonality and long-term trends in lending activities
